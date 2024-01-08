@@ -74,3 +74,18 @@ react로 신나게 코드 짠걸 gatsby가 모든 reactJS 요소를 html로 바�
 
 ```
 
+### Layout
+
+```react
+Layout Components
+Gatsby는 기본적으로 레이아웃을 페이지에 자동으로 적용하지 않습니다
+Layout Component를 사용하면 전체 머리글 및 바닥글, 그리고 일부 페이지에서는 사이드바를 사용하거나 레이아웃과 페이지 컴포넌트 간에 데이터를 전달할 수 있습니다.
+https://www.gatsbyjs.com/docs/how-to/routing/layout-components/
+
+Gatsby Head API
+Gatsby에는 페이지의 문서 헤드에 요소를 추가할 수 있는 내장 head가 포함되어 있습니다.
+react-helmet 또는 기타 유사한 솔루션과 비교할 때 Gatsby Head는 사용하기 쉽고 성능이 우수하며 번들 크기가 더 작고 최신 React 기능을 지원합니다.
+ex) export const Head = () => < title>Home Page< /title>
+https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+```
+
