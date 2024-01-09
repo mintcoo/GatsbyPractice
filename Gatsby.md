@@ -158,3 +158,54 @@ export default Seo;
 - run start 시킬때 뜨는 localhost:8000_graphQL 주소로가면 관련해서 뜸
 - useStaticQuery는 데이터를 내 컴포넌트에 넣기를 원할떄 사용
 - page용은 pageQuery 따로있다
+
+### Page Query
+
+```react
+Gatsby Plugin Library
+Gatsby 사이트나 앱을 커스텀할 수 있는 기능을 제공하는 라이브러리들
+https://www.gatsbyjs.com/plugins
+
+gatsby-source-filesystem
+로컬 파일 시스템에서 Gatsby 애플리케이션으로 데이터를 sourcing하기 위한 Gatsby 소스 플러그인. 플러그인은 파일에서 파일 노드를 생성합니다. 다양한 "transformer" 플러그인은 파일 노드를 다양한 다른 유형의 데이터로 변환할 수 있습니다.
+npm install gatsby-source-filesystem
+https://www.gatsbyjs.com/plugins/gatsby-source-filesystem
+```
+
+```react
+// blog 페이지
+
+import React from "react";
+import Layout from "../Components/Layout";
+import { HeadFC, PageProps, graphql } from "gatsby";
+import Seo from "../Components/Seo";
+
+function Blog({ data }: PageProps<Queries.BlogTitlesQuery>) {
+  // console.log(data);
+  // 아래에서 query로 받아온 데이터가 담겨있음
+  return (
+    <Layout title="Blog">
+      <ul>
+        {data.allFile.nodes.map((file, index) => (
+          <li key={index}>{file.name}</li>
+        ))}
+      </ul>
+    </Layout>
+  );
+}
+
+export default Blog;
+
+export const query = graphql`
+  query BlogTitles {
+    allFile {
+      nodes {
+        name
+      }
+    }
+  }
+`;
+// 이렇게 쓰는건 gatsby 프레임워크의 문법, 마법이다
+
+```
+

@@ -10,7 +10,16 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   // gatsby가 우리 쿼리를읽고 자동적으로 타입생성
-  plugins: ["gatsby-plugin-postcss"],
+  plugins: [
+    "gatsby-plugin-postcss",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        // Path to the directory
+        path: `${__dirname}/blog-post`,
+      },
+    },
+  ],
 };
 
 export default config;
