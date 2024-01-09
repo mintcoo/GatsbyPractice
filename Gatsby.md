@@ -74,7 +74,7 @@ react로 신나게 코드 짠걸 gatsby가 모든 reactJS 요소를 html로 바�
 
 ```
 
-### Layout
+## Layout
 
 ```react
 Layout Components
@@ -89,3 +89,25 @@ ex) export const Head = () => < title>Home Page< /title>
 https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
 ```
 
+## Date Fetching
+
+![image-20240109132856069](C:\Users\han\Desktop\GatsbyPractice\assets\image-20240109132856069.png)
+
+- 리액트 방법도 가능하지만 그러면 리액트JS가 로드된 후에 데이터를 받아오고 보여주기 때문에 완성된 페이지를 주는 개츠비를 완벽하게 쓰는 이유가 되지 못한다
+
+![image-20240109133147523](C:\Users\han\Desktop\GatsbyPractice\assets\image-20240109133147523.png)
+
+- Gastby로 만든 사이트는 다 로드된 후에는 리액트 JS사이트와 정확히 똑같아짐. 의의는 미리 만들어서 준다는 점인데 만들고 준 이후로의 작동은 리액트와 똑같다는 말
+
+![image-20240109133218130](C:\Users\han\Desktop\GatsbyPractice\assets\image-20240109133218130.png)
+
+- 이렇게 로딩중으로 뭐 처리해도 되면 리액트부분도 잘 쓰면됨
+
+## GraphQL
+
+- 쿼리방식의 언어 => 데이터베이스에서 뭘 꺼내오는 언어임
+
+- Gastby의 방식으로 데이터를 미리받아와 html생성후 보여주기위해 필요
+- GraphQL은 API데이터를 요청할때 내가 원하는걸 콕 집어서 답변받을수 있음
+
+![image-20240109135004540](C:\Users\han\Desktop\GatsbyPractice\assets\image-20240109135004540.png)
