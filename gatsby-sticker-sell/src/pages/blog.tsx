@@ -3,14 +3,18 @@ import Layout from "../Components/Layout";
 import { HeadFC, PageProps, graphql } from "gatsby";
 import Seo from "../Components/Seo";
 
-function Blog({ data }: PageProps<Queries.BlogTitlesQuery>) {
+function Blog({ data }: PageProps<Queries.BlogPostQuery>) {
   // console.log(data);
   // 아래에서 query로 받아온 데이터가 담겨있음
   return (
     <Layout title="Blog">
       <ul>
-        {data.allFile.nodes.map((file, index) => (
-          <li key={index}>{file.name}</li>
+        {data.allMdx.nodes.map((file, index) => (
+          <li key={index}>
+            <div>{file.frontmatter?.title}</div>
+            <div>{file.excerpt}</div>
+            <div className="text-2xl">{file.frontmatter?.date}</div>
+          </li>
         ))}
       </ul>
     </Layout>
@@ -20,10 +24,15 @@ function Blog({ data }: PageProps<Queries.BlogTitlesQuery>) {
 export default Blog;
 
 export const query = graphql`
-  query BlogTitles {
-    allFile {
+  query BlogPost {
+    allMdx {
       nodes {
-        name
+        frontmatter {
+          category
+          date
+          title
+        }
+        excerpt(pruneLength: 55)
       }
     }
   }

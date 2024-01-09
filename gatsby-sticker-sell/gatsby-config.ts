@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
   // gatsby가 우리 쿼리를읽고 자동적으로 타입생성
   plugins: [
     "gatsby-plugin-postcss",
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
