@@ -225,3 +225,14 @@ https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx
 ![image-20240109172115174](C:\Users\han\Desktop\GatsbyPractice\assets\image-20240109172115174.png)
 
 - MDX파일로 이렇게 접근이 가능해짐
+
+```react
+블로그 게시물 페이지 템플릿 만들기
+
+MDX 노드의 slug 필드에서 새 페이지를 만들려면 src/pages/{mdx.frontmatter__slug}.js에 새 파일을 만들어야 합니다.
+src/pages/{mdx.frontmatter__slug}.js는 데이터 계층의 각 MDX 노드에 대해 하나씩 여러 경로로 전환됩니다.
+ex) Gatsby는 슬러그 my-first-post와 함께 MDX 노드를 사용하여 /my-first-post/ 경로에 있는 페이지를 빌드합니다.
+
+https://www.gatsbyjs.com/docs/tutorial/part-6/#task-create-blog-post-page-template
+```
+

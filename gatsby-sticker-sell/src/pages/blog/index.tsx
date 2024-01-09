@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../Components/Layout";
-import { HeadFC, PageProps, graphql } from "gatsby";
-import Seo from "../Components/Seo";
+import Layout from "../../Components/Layout";
+import { HeadFC, Link, PageProps, graphql } from "gatsby";
+import Seo from "../../Components/Seo";
 
 function Blog({ data }: PageProps<Queries.BlogPostQuery>) {
   // console.log(data);
@@ -11,9 +11,11 @@ function Blog({ data }: PageProps<Queries.BlogPostQuery>) {
       <ul>
         {data.allMdx.nodes.map((file, index) => (
           <li key={index}>
-            <div>{file.frontmatter?.title}</div>
-            <div>{file.excerpt}</div>
-            <div className="text-2xl">{file.frontmatter?.date}</div>
+            <Link to={`/blog/${file.frontmatter?.slug}`}>
+              <div>{file.frontmatter?.title}</div>
+              <div>{file.excerpt}</div>
+              <div className="text-2xl">{file.frontmatter?.date}</div>
+            </Link>
           </li>
         ))}
       </ul>
@@ -31,6 +33,7 @@ export const query = graphql`
           category
           date
           title
+          slug
         }
         excerpt(pruneLength: 55)
       }
