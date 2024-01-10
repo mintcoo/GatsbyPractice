@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../Components/Layout";
-import { HeadFC } from "gatsby";
+import { HeadFC, graphql } from "gatsby";
 import Seo from "../Components/Seo";
 
 function AboutUs() {
