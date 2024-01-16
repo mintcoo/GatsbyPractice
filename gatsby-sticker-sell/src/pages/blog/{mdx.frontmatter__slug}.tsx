@@ -36,7 +36,7 @@ export const query = graphql`
         title
         headerImage {
           childImageSharp {
-            gatsbyImageData(height: 800, placeholder: TRACED_SVG)
+            gatsbyImageData(width: 800, placeholder: TRACED_SVG)
           }
         }
       }

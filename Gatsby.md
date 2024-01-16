@@ -305,19 +305,57 @@ sharp
 https://github.com/lovell/sharp
 ```
 
-### Gatsby Image
+## Gatsby Image
 
-````react
+```react
 Non-null assertion operator
 data.mdx?.frontmatter?.headerImage?.childImageSharp?.gatsbyImageData! 에서 뒤에 !는 Non-null assertion operator로 피연산자가 Nullish(null이나 undefined) 값이 아니라고 타입스크립트에게 단언하는 것입니다. 즉, 앞의 값이 null 또는 undefined가 아님을 확신할 때 사용할 수 있습니다.
 (하지만 ! 대신 if문을 사용하는 것을 추천)
 
 GatsbyImage
-```
 headerImage {
 childImageSharp {
 gatsbyImageData(height: 300, placeholder: BLURRED)
 }
 }
-````
+
+// 결국 쿼리로 파일을 접근하려면 
+{
+  resolve: `gatsby-source-filesystem`,
+  options: {
+    // Path to the directory
+    path: `${__dirname}/blog-post`,
+  },
+},
+// gatsby-config.js 여기 파일에 설정한 루트에 접근하는거네
+```
+
+## 환경변수
+
+```react
+1. Node.js 애플리케이션에서 사용할 때:
+
+dotenv 모듈을 설치하여 .env 파일을 로드하고, process.env 객체에 환경 변수를 추가
+npm install dotenv
+
+// Node.js 애플리케이션에서
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
+
+2. React 애플리케이션에서 사용할 때 (Create React App 등):
+
+.env 파일에 REACT_APP_ 접두어를 붙이고, 자동으로 환경 변수가 로드
+Create React App에서는 추가적인 설치가 필요 없습니다.
+// React 애플리케이션에서
+const apiKey = process.env.REACT_APP_API_KEY;
+```
+
+### gatsby-browser.ts
+
+```react
+이 파일에 내가 브라우저에 들어갔으면 하는걸 다 넣으면됨
+ex)
+import "./src/styles/global.css"
+css 처럼
+```
 
